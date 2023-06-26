@@ -6,9 +6,33 @@ const opcoesUnidades = {
 }
 
 //Referências para elementos do DOM
-const selectUnidadePincipal = document.getElementById("unidadePrincipal");
+const selectUnidadePrincipal = document.getElementById("unidadePrincipal");
 const selectUnidadeConversao = document.getElementById("unidadeConversao");
 const selectConversao = document.getElementById("conversao");
+
+//Adiciona um ouvinte de evento no seletor de tipo de conversão 
+selectConversao.addEventListener("change", preencherUnidades);
+
+// Função para preencher as unidades de origem e destino baseada no tipo de conversão escolhido pelo usuário
+function preencherUnidades() {
+    const tipoSelecionado = selectConversao.value;
+    const unidades = opcoesUnidades[tipoSelecionado];
+
+    // Limpa as opções anteriores 
+    selectUnidadePrincipal.innerHTML = '';
+    selectUnidadeConversao.innerHTML = '';
+
+    // Preenche as opções de unidade 
+    unidades.forEach(function (unidade)) {
+        const option = document.createElement("option");
+        option.value = unidade.toLowerCase().replace(/ /g, "");
+        option.textContent = unidade;
+
+        // Adiciona as opções ao seletor
+        selectUnidadePrincipal.appendChild(option.clodeNode(true));
+        selectUnidadeConversao.appendChild(option);
+    }
+}
 
 //Efetua conversão dependendo da unidade selecionada pelo usuário
 function converter() {
