@@ -49,8 +49,45 @@ function converter() {
             break;
         case "Onça":
             resultado = converterMassa(parseFloat(valorDigitado) * 35.274, unidadeConversao);
-        
+            break;
+    }
+}
 
+//Funções para conversão das unidades
 
+function converterTemperatura(valor, unidadeConversao) {
+    switch (unidadeConversao) {
+        case "Celsius":
+            return valor;
+        case "Fahrenheit":
+            return (valor * 9)/ 5 + 32;
+        case "Kelvin":
+            return valor + 273.15;
+    }
+}
+
+function converterComprimento(valor, unidadeConversao) {
+    switch (unidadeConversao) {
+        case "Metro":
+            return valor;
+        case "Centímetro":
+            return valor * 100;
+        case "Pé":
+            return valor * 3.2808;
+        case "Polegada":
+            return valor * 39.37;
+    }
+}
+
+function converterComprimento(valor, unidadeConversao) {
+    switch (unidadeConversao) {
+        case "Quilograma":
+            return valor;
+        case "Grama":
+            return valor * 1000;
+        case "Libra":
+            return valor * 2.2047;
+        case "Onça":
+            return valor * 35.27 
     }
 }
