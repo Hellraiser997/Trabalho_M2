@@ -77,6 +77,9 @@ function converter() {
     }
 }
 
+// Exibe o resultado da conversão
+document.getElementById("resultado").textContent = resultado;
+
 //Funções para conversão das unidades
 
 function converterTemperatura(valor, unidadeConversao) {
