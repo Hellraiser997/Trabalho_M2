@@ -3,35 +3,35 @@ const opcoesUnidades = {
     temperatura: ["Celsius", "Fahrenheit", "Kelvin"],
     comprimento: ["Metro", "Centímetro", "Pé", "Polegada"],
     massa: ["Quilograma", "Grama", "Libra", "Onça"]
-}
+};  
 
 //Referências para elementos do DOM
-const selectUnidadePrincipal = document.getElementById("unidadePrincipal");
-const selectUnidadeConversao = document.getElementById("unidadeConversao");
-const selectConversao = document.getElementById("conversao");
+const selectUnidadePrincipal = document.getElementById("sourceUnit");
+const selectUnidadeConversao = document.getElementById("targetUnit");
+const selectTipoConversao = document.getElementById("conversionType");
 
 //Adiciona um ouvinte de evento no seletor de tipo de conversão 
-selectConversao.addEventListener("change", preencherUnidades);
+selectTipoConversao.addEventListener("change", preencherUnidades);
 
 // Função para preencher as unidades de origem e destino baseada no tipo de conversão escolhido pelo usuário
 function preencherUnidades() {
-    const tipoSelecionado = selectConversao.value;
+    const tipoSelecionado = selectTipoConversao.value;
     const unidades = opcoesUnidades[tipoSelecionado];
 
     // Limpa as opções anteriores 
-    selectUnidadePrincipal.innerHTML = '';
-    selectUnidadeConversao.innerHTML = '';
+    selectUnidadePrincipal.innerHTML = "";
+    selectUnidadeConversao.innerHTML = "";
 
     // Preenche as opções de unidade 
-    unidades.forEach(function (unidade)) {
+    unidades.forEach(function (unidade) {
         const option = document.createElement("option");
         option.value = unidade.toLowerCase().replace(/ /g, "");
         option.textContent = unidade;
 
         // Adiciona as opções ao seletor
-        selectUnidadePrincipal.appendChild(option.clodeNode(true));
+        selectUnidadePrincipal.appendChild(option.cloneNode(true));
         selectUnidadeConversao.appendChild(option);
-    }
+    });
 }
 
 //Efetua conversão dependendo da unidade selecionada pelo usuário
@@ -42,79 +42,93 @@ function converter() {
     let resultado;
 
     switch (unidadePrincipal) {
-        case "Celsius":
+        case "celsius":
             resultado = converterTemperatura(parseFloat(valorDigitado), unidadeConversao);
-            break
-        case "Fahrenheit":
+            break;
+        case "fahrenheit":
             resultado = converterTemperatura(((parseFloat(valorDigitado) - 32) * 5) / 9, unidadeConversao);
             break;
-        case "Kelvin":
+        case "kelvin":
             resultado = converterTemperatura(parseFloat(valorDigitado) - 273.15, unidadeConversao);
             break;
-        case "Metro":
+        case "metro":
             resultado = converterComprimento(parseFloat(valorDigitado), unidadeConversao);
-        case "Centímetro":
+            break;
+        case "centímetro":
             resultado = converterComprimento(parseFloat(valorDigitado) / 100, unidadeConversao);
             break;
-        case "Pé":
+        case "pé":
             resultado = converterComprimento(parseFloat(valorDigitado) / 3.28084, unidadeConversao);
             break;
-        case "Polegada":
+        case "polegada":
             resultado = converterComprimento(parseFloat(valorDigitado) / 39.37, unidadeConversao);
             break;
-        case "Quilograma":
+        case "quilograma":
             resultado = converterMassa(parseFloat(valorDigitado), unidadeConversao);
             break;
-        case "Grama":
+        case "grama":
             resultado = converterMassa(parseFloat(valorDigitado) * 1000, unidadeConversao);
             break;
-        case "Libra":
+        case "libra":
             resultado = converterMassa(parseFloat(valorDigitado) * 2.2047, unidadeConversao);
             break;
-        case "Onça":
+        case "onça":
             resultado = converterMassa(parseFloat(valorDigitado) * 35.274, unidadeConversao);
             break;
-    }
+        default:
+            resultado = "Unidade de origem inválida";
+        }
+        
+    // Exibe o resultado da conversão
+    document.getElementById("resultado").textContent = resultado;
 }
 
-// Exibe o resultado da conversão
-document.getElementById("resultado").textContent = resultado;
 
 //Funções para conversão das unidades
 
 function converterTemperatura(valor, unidadeConversao) {
     switch (unidadeConversao) {
-        case "Celsius":
+        case "celsius":
             return valor;
-        case "Fahrenheit":
+        case "fahrenheit":
             return (valor * 9)/ 5 + 32;
-        case "Kelvin":
+        case "kelvin":
             return valor + 273.15;
+        default:
+            return "Unidade de destino inválida"
     }
 }
 
 function converterComprimento(valor, unidadeConversao) {
     switch (unidadeConversao) {
-        case "Metro":
+        case "metro":
             return valor;
-        case "Centímetro":
+        case "centímetro":
             return valor * 100;
-        case "Pé":
+        case "pé":
             return valor * 3.2808;
-        case "Polegada":
+        case "polegada":
             return valor * 39.37;
+        default:
+            return "Unidade de destino inválida"
+
     }
 }
 
-function converterComprimento(valor, unidadeConversao) {
+function converterMassa(valor, unidadeConversao) {
     switch (unidadeConversao) {
-        case "Quilograma":
+        case "quilograma":
             return valor;
-        case "Grama":
+        case "grama":
             return valor * 1000;
-        case "Libra":
+        case "libra":
             return valor * 2.2047;
-        case "Onça":
+        case "onça":
             return valor * 35.27 
+        default:
+            return "Unidade de destino inválida"
+
     }
 }
+
+preencherUnidades();
