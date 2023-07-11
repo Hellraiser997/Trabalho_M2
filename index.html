@@ -4,28 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversor de Unidades</title>
+    <!-- Link para arquivo CSS -->
     <link rel="stylesheet" href="./CSS/style.css" />
+    <!-- Link para arquivo JavaScript -->
     <script src="./JS/script.js" defer></script>
   </head>
   <body>
     <main class="formula">
+      <!-- Formulário utilizado para fazer o conversor -->
       <form class="box">
         <h2>Selecione a grandeza</h2>
+        <!-- Select é utilizado para selecionar entre as grandezas -->
         <select id="conversaoTipo">
           <option value="temperatura">Temperatura</option>
           <option value="massa">Massa</option>
           <option value="comprimento">Comprimento</option>
         </select>
-
+        <!-- A unidade a ser convertida é selecionada aqui -->
         <h2>Selecione a unidade a ser convertida</h2>
         <select id="unidadeOrigem"></select>
-
+        <!-- A unidade de conversão será selecionada aqui -->
         <h2>Selecione a unidade de conversão</h2>
         <select id="unidadeDestino"></select>
-
+        <!-- O input é utilizado para que o valor seja inserido -->
         <input type="number" id="valorEntrada" placeholder="Digitar valor">
+        <!-- O button é utilizado para servir como botão de conversão -->
         <button type="button" onclick="converter()">Converter</button>
-
+        <!-- O resultado da conversão é mostrado em um h2 -->
         <h2 id="resultado"></h2>
       </form>
     </main>
