@@ -11,19 +11,19 @@
     <main class="formula">
       <form class="box">
         <h2>Selecione a grandeza</h2>
-        <select id="conversionType">
+        <select id="conversaoTipo">
           <option value="temperatura">Temperatura</option>
           <option value="massa">Massa</option>
           <option value="comprimento">Comprimento</option>
         </select>
 
         <h2>Selecione a unidade a ser convertida</h2>
-        <select id="sourceUnit"></select>
+        <select id="unidadeOrigem"></select>
 
         <h2>Selecione a unidade de conversão</h2>
-        <select id="targetUnit"></select>
+        <select id="unidadeDestino"></select>
 
-        <input type="number" id="inputValue" placeholder="Digitar valor">
+        <input type="number" id="valorEntrada" placeholder="Digitar valor">
         <button type="button" onclick="converter()">Converter</button>
 
         <h2 id="resultado"></h2>
