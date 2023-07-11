@@ -1,4 +1,4 @@
-
+/* 
 
 body {
     display: flex;
@@ -44,4 +44,40 @@ body {
     background-color: #de95ff;
     border-radius: 23px;
     border-color: fuchsia;
+} */
+
+/* CSS reset */
+html, body {
+  height: 100%;
 }
+/* Essa parte fará com que os objetos fiquem centralizados na página, além de decidir a cor de fundo. O preto puro não foi escolhido pois ele força mais a vista, portanto essa tonalidade mais suave foi utilizada.*/
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0D0D0D;
+}
+/* Aqui, a "caixa" onde os objetos ficarão é criada, e tendo sua cor de fundo definida em branco, suas pontas arredondadas pelo border-radius, um padding para que nada fique "colado" à borda, e sua largura e altura definidos, respectivamente. */
+.box {
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 20px;
+  width: 400px;
+  height: 400px;
+}
+/* Aqui, a estilização do select é definida. O seletores irão ter uma largura condizente com o comprimento da caixa, mas respeitando o padding. Além disso, terão um espaço em relação ao elemento logo abaixo para que não fiquem colados um no outro. */
+.box select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+/* Aqui, o input é estilizado com uma largura um pouco menor do que o select para que o botão de conversão tenha seu espaço logo ao lado. */
+.box input {
+  width: 75%;
+  margin-bottom: 10px;
+}
+/* Aqui, é definido que o H2 será centralizado em sua respectiva "linha". */
+h2 {
+  text-align: center;
+}
+
+
