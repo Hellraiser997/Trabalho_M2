@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Conversor de Unidades</title>
     <link rel="stylesheet" href="./CSS/style.css" />
     <script src="./JS/script.js" defer></script>
   </head>
   <body>
-    <div class="formula">
+    <main class="formula">
       <form class="box">
         <h2>Selecione a grandeza</h2>
         <select id="conversionType">
@@ -23,10 +23,11 @@
         <h2>Selecione a unidade de conversão</h2>
         <select id="targetUnit"></select>
 
-        <input type="number" id="inputValue" placeholder="Digitar valor" />
+        <input type="number" id="inputValue" placeholder="Digitar valor">
         <button type="button" onclick="converter()">Converter</button>
-        <p id="resultado"></p>
+
+        <h2 id="resultado"></h2>
       </form>
-    </div>
+    </main>
   </body>
 </html>
