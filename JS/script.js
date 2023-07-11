@@ -6,9 +6,9 @@ const opcoesUnidades = {
 };  
 
 //Referências para elementos do DOM
-const selectUnidadePrincipal = document.getElementById("sourceUnit");
-const selectUnidadeConversao = document.getElementById("targetUnit");
-const selectTipoConversao = document.getElementById("conversionType");
+const selectUnidadePrincipal = document.getElementById("unidadeOrigem");
+const selectUnidadeConversao = document.getElementById("unidadeDestino");
+const selectTipoConversao = document.getElementById("conversaoTipo");
 
 //Adiciona um ouvinte de evento no seletor de tipo de conversão 
 selectTipoConversao.addEventListener("change", preencherUnidades);
@@ -36,7 +36,7 @@ function preencherUnidades() {
 
 //Efetua conversão dependendo da unidade selecionada pelo usuário
 function converter() {
-    const valorDigitado = document.getElementById("inputValue").value;
+    const valorDigitado = document.getElementById("valorEntrada").value;
     const unidadePrincipal = selectUnidadePrincipal.value;
     const unidadeConversao = selectUnidadeConversao.value;
     let resultado;
@@ -81,6 +81,10 @@ function converter() {
         
     // Exibe o resultado da conversão
     document.getElementById("resultado").textContent = resultado;
+
+    if (valorDigitado === "") {
+        alert("Insira um valor no campo!");
+    }
 }
 
 
