@@ -13,7 +13,9 @@
     <main class="formula">
       <!-- Formulário utilizado para fazer o conversor -->
       <form class="box">
-        <h2>Selecione a grandeza</h2>
+        <label for="conversaoTipo">
+          <h2>Selecione a grandeza</h2>
+        </label>
         <!-- Select é utilizado para selecionar entre as grandezas -->
         <select id="conversaoTipo">
           <option value="temperatura">Temperatura</option>
@@ -21,12 +23,19 @@
           <option value="comprimento">Comprimento</option>
         </select>
         <!-- A unidade a ser convertida é selecionada aqui -->
-        <h2>Selecione a unidade a ser convertida</h2>
+        <label for="unidadeOrigem">
+          <h2>Selecione a unidade a ser convertida</h2>
+        </label>
         <select id="unidadeOrigem"></select>
         <!-- A unidade de conversão será selecionada aqui -->
-        <h2>Selecione a unidade de conversão</h2>
+        <label for="unidadeDestino">
+          <h2>Selecione a unidade de conversão</h2>
+        </label>
         <select id="unidadeDestino"></select>
         <!-- O input é utilizado para que o valor seja inserido -->
+        <label for="valorEntrada">
+          <h2>Digite o valor a ser convertido</h2>
+        </label>
         <input type="number" id="valorEntrada" placeholder="Digitar valor">
         <!-- O button é utilizado para servir como botão de conversão -->
         <button type="button" onclick="converter()">Converter</button>
